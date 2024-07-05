@@ -19,10 +19,18 @@ def get_excluded_characters():
 
 length = int(get_password_length())
 excluded_characters = get_excluded_characters()
-password = []
+print(excluded_characters)
 
-for i in range(length):
-    password.append(string.printable[random.randint(0, 93)])
+password_generating = True
+while password_generating == True:
+    password = []
+    for i in range(length):
+        password.append(string.printable[random.randint(0, 93)]) 
+        if any(char in excluded_characters for char in password): #better implemented by removing excluded characters from the printable string
+            password_generating = True
+        else:
+            password_generating = False
+
 
 print("".join(password))
 
