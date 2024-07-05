@@ -2,7 +2,7 @@ import sys
 import string
 import random
 
-def get_arguments():
+def get_password_length():
     try:
         length = int(sys.argv[1])
     except ValueError:
@@ -10,7 +10,7 @@ def get_arguments():
         sys.exit(1)
     return length
 
-length = int(get_arguments())
+length = int(get_password_length())
 password = []
 for i in range(length):
     password.append(string.printable[random.randint(0, 93)])
