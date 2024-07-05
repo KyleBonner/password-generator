@@ -3,7 +3,11 @@ import string
 import random
 
 def get_arguments():
-    length = sys.argv[1]
+    try:
+        length = int(sys.argv[1])
+    except ValueError:
+        print("Please provide a valid number as an argument")
+        sys.exit(1)
     return length
 
 length = int(get_arguments())
